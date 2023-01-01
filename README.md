@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+## Table of Contents
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* [About the Project](#about-the-project)
+  * [Built With](#built-with)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+* [Related Project](#related-project)
+* [Screenshot](#screenshot)
+* [Contact](#contact)
 
-## Available Scripts
 
-In the project directory, you can run:
+## About The Project
 
-### `npm start`
+Flyer is an online flight ticket booking project, this project can be used to check plane tickets and order plane tickets [demo flyer](https://ankasa.rizkyproject.my.id/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Built With
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* [Node JS](https://nodejs.org/en/docs/)
+* [React JS](https://reactjs.org/)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This is an example of how to list things you need to use the software and how to install them.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* [nodejs](https://nodejs.org/en/download/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. Clone the repo
+```bash
+git clone https://github.com/easyManik/FE-AnkasaTicketing
+```
+2. Install NPM packages
+```bash
+npm install
+```
+3. Add .env file at root folder project, and add following
+```bash
+REACT_APP_BACKEND_API=https://ankasa.rizkyproject.my.id/ // or use your own
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Screenshot
+| Login Page | Register Page Customer | Register Page Admin |
+| ------------- | ------------- | ------------- |
+| ![login](https://i.imgur.com/SzaMjBc.png) | ![register](https://i.imgur.com/77uUOfR.png) | ![register](https://i.imgur.com/6gowYd5.png) |
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Landing Page | Tranding Destination | Profile |
+| ------------- | ------------- | ------------- |
+| ![landing page](https://i.imgur.com/Vedq04L.png) | ![tranding](https://i.imgur.com/gxTwiUW.png) | ![profile](https://i.imgur.com/KicI9Oy.png) |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+| Find Ticket | All Ticket | Select Ticket |
+| ------------- | ------------- |  ------------- |
+| ![find ticket](https://i.imgur.com/SDCLpfM.png) | ![allticket](https://i.imgur.com/WjqlKaT.png) | ![selct ticket](https://i.imgur.com/lXLPRYW.png) |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+| My Booking | Payment | Barcode |
+| ------------- | ------------- | ------------- |
+| ![my booking](https://i.imgur.com/9k7Dk7I.png) | ![payment](https://i.imgur.com/zEpXJgq.png) | ![barcode](https://i.imgur.com/D9FCcx6.png) |
 
-## Learn More
+| Admin Page | Insert Ticket | Insert Airport | Insert Airlines |
+| ------------- | ------------- | ------------- | ------------- |
+| ![admin page](https://i.imgur.com/bzyT2hf.png) | ![insert ticket](https://i.imgur.com/fi1HfBd.png) | ![insert airport](https://i.imgur.com/0GsJ981.png) | ![insert airlines](https://i.imgur.com/HzYus4B.png) |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Related Project
+* [`Flyer Demo`](https://ankasa.rizkyproject.my.id/login)
+* [`Flyer REST API`](https://flyer-be-production.up.railway.app/ticket)
+* [`Peworld REST API Repository`](https://github.com/helmipradita/flyer-be)
 
-### Code Splitting
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Contributors names and contact info
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Frontend Developers
+  * Easy Destini Manik [@easyManik](https://github.com/easyManik)
+  * Alvin Jamal Azkya [@alvinjamal](https://github.com/alvinjamal)
+  * Sri Yuniar [@sriyuniar541](https://github.com/sriyuniar541)
+* Backend Developers
+  * Rizky S [@rizkysyp](https://github.com/rizkysyp)
+  * Helmi Pradita [@helmipradita](https://github.com/helmipradita)
