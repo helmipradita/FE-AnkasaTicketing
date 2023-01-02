@@ -14,6 +14,9 @@ import ReactPaginate from "react-paginate";
 export default function GetAirlines() {
   const { airlines } = useSelector((state) => state.airlines);
   const dispatch = useDispatch();
+  const [page, setPage] = useState(1);
+  const totalPageAdmin = airlines.pagination.totalPage;
+  const current = airlines.pagination.currentPage;
   console.log(airlines);
 
   const deleteAirlin = (e, id) => {
@@ -24,13 +27,26 @@ export default function GetAirlines() {
   };
 
   useEffect(() => {
-    dispatch(getAirlines());
-  }, []);
+    dispatch(getAirlines(page));
+  }, [page]);
 
   //pagination
-  const [pageCount, setpageCount] = useState(0);
-  let limit = 12;
-  //end pagination
+  const pagenateNext = () => {
+    if (page === totalPageAdmin) {
+      setPage((page = totalPageAdmin));
+    } else {
+      setPage(page + 1);
+      console.log(page);
+    }
+  };
+  const pagenateM = () => {
+    if (page === 0) {
+      setPage((page = 1));
+    } else {
+      setPage(page - 1);
+      console.log(page);
+    }
+  };
   return (
     // <div>sssss</div>
     <div>
@@ -77,26 +93,26 @@ export default function GetAirlines() {
             </button>
           </Link>
         </div>
-        <ReactPaginate
-          previousLabel={"previous"}
-          nextLabel={"next"}
-          breakLabel={"..."}
-          pageCount={pageCount}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={2}
-          // onPageChange={handleClick}
-          containerClassName={"pagination justify-content-center"}
-          pageClassName={"page-item"}
-          pageLinkClassName={"page-link"}
-          previousClassName={"page-item"}
-          previousLinkClassName={"page-link"}
-          nextClassName={"page-item"}
-          nextLinkClassName={"page-link"}
-          breakClassName={"page-item"}
-          breakLinkClassName={"page-link"}
-          activeClassName={"active"}
-        />
+
         <h5 className="text-center mb-4 mt-4">DAFTAR AIRLINES </h5>
+        {/* pagination */}
+        <div className="d-flex justify-content-end mb-3 ">
+          <button
+            className="btn btn page-item border-secondary"
+            onClick={pagenateM}
+          >
+            Prev
+          </button>
+          <p className="px-2">
+            {current}/{totalPageAdmin}
+          </p>
+          <button
+            className="btn btn page-item border-secondary"
+            onClick={pagenateNext}
+          >
+            Next
+          </button>
+        </div>
         <Table bordered hover>
           <thead>
             <tr className="text-center bg-light">

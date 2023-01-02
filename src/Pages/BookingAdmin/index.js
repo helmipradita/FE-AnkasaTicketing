@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Table from "react-bootstrap/Table";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -15,6 +15,9 @@ export default function AdminBooking() {
   const { booking } = useSelector((state) => state.booking);
   const dispatch = useDispatch();
   console.log(booking, "ini data booking admin");
+  const [page, setPage] = useState(1);
+  const totalPageAdmin = booking.pagination.totalPage;
+  const current = booking.pagination.currentPage;
 
   //deleteTicket
   const deleteTicket = (e, id) => {
@@ -27,9 +30,26 @@ export default function AdminBooking() {
   useEffect(() => {
     const localdata = localStorage.getItem("Ankasa");
     const { token } = JSON.parse(localdata);
-    dispatch(bookingTiket(token));
-  }, []);
+    dispatch(bookingTiket(token, page));
+  }, [page]);
 
+  //pagination
+  const pagenateNext = () => {
+    if (page === totalPageAdmin) {
+      setPage((page = totalPageAdmin));
+    } else {
+      setPage(page + 1);
+      console.log(page);
+    }
+  };
+  const pagenateM = () => {
+    if (page === 0) {
+      setPage((page = 1));
+    } else {
+      setPage(page - 1);
+      console.log(page);
+    }
+  };
   return (
     <div>
       <nav className="p-5">
@@ -76,6 +96,24 @@ export default function AdminBooking() {
           </Link>
         </div>
         <h5 className="text-center mb-4 mt-4">DAFTAR TIKET </h5>
+        {/* pagination */}
+        <div className="d-flex justify-content-end mb-3 ">
+          <button
+            className="btn btn page-item border-secondary"
+            onClick={pagenateM}
+          >
+            Prev
+          </button>
+          <p className="px-2">
+            {current}/{totalPageAdmin}
+          </p>
+          <button
+            className="btn btn page-item border-secondary"
+            onClick={pagenateNext}
+          >
+            Next
+          </button>
+        </div>
         <Table bordered hover>
           <thead>
             <tr className="text-center">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Table from "react-bootstrap/Table";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -13,7 +13,10 @@ import Footer from "../../Components/base/footer";
 export default function Airport() {
   const { airportAdmin } = useSelector((state) => state.airportAdmin);
   const dispatch = useDispatch();
+  const [page, setPage] = useState(1);
   console.log(airportAdmin);
+  const totalPageAdmin = airportAdmin.pagination.totalPage;
+  const current = airportAdmin.pagination.currentPage;
 
   const deleteAir = (e, id) => {
     const localdata = localStorage.getItem("Ankasa");
@@ -25,9 +28,26 @@ export default function Airport() {
   useEffect(() => {
     const localdata = localStorage.getItem("Ankasa");
     const { token } = JSON.parse(localdata);
-    dispatch(getAirportAdmin(token));
-  }, []);
+    dispatch(getAirportAdmin(token, page));
+  }, [page]);
 
+  //pagination
+  const pagenateNext = () => {
+    if (page === totalPageAdmin) {
+      setPage((page = 5));
+    } else {
+      setPage(page + 1);
+      console.log(page);
+    }
+  };
+  const pagenateM = () => {
+    if (page === 0) {
+      setPage((page = 1));
+    } else {
+      setPage(page - 1);
+      console.log(page);
+    }
+  };
   return (
     <div>
       <nav className="p-5">
@@ -74,6 +94,24 @@ export default function Airport() {
           </Link>
         </div>
         <h5 className="text-center mb-4 mt-4">DAFTAR AIRPORT </h5>
+        {/* pagination */}
+        <div className="d-flex justify-content-end mb-3 ">
+          <button
+            className="btn btn page-item border-secondary"
+            onClick={pagenateM}
+          >
+            Prev
+          </button>
+          <p className="px-2">
+            {current}/{totalPageAdmin}
+          </p>
+          <button
+            className="btn btn page-item border-secondary"
+            onClick={pagenateNext}
+          >
+            Next
+          </button>
+        </div>
         <Table bordered hover>
           <thead>
             <tr className="text-center bg-light">

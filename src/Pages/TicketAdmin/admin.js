@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Table from "react-bootstrap/Table";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -14,6 +14,9 @@ export default function Admin() {
   // get ticket
   const { adminTicket } = useSelector((state) => state.adminTicket);
   const dispatch = useDispatch();
+  const [page, setPage] = useState(1);
+  const totalPageAdmin = adminTicket.pagination.totalPage;
+  const current = adminTicket.pagination.currentPage;
   console.log(adminTicket);
 
   //deleteTicket
@@ -25,8 +28,25 @@ export default function Admin() {
   };
 
   useEffect(() => {
-    dispatch(getAllTicket());
-  }, []);
+    dispatch(getAllTicket(page));
+  }, [page]);
+
+  const pagenateNext = () => {
+    if (page === totalPageAdmin) {
+      setPage((page = totalPageAdmin));
+    } else {
+      setPage(page + 1);
+      console.log(page);
+    }
+  };
+  const pagenateM = () => {
+    if (page === 0) {
+      setPage((page = 1));
+    } else {
+      setPage(page - 1);
+      console.log(page);
+    }
+  };
 
   return (
     // <div>sssss</div>
@@ -75,6 +95,24 @@ export default function Admin() {
           </Link>
         </div>
         <h5 className="text-center mb-4 mt-4">DAFTAR TIKET </h5>
+        {/* pagination */}
+        <div className="d-flex justify-content-end mb-3 ">
+          <button
+            className="btn btn page-item border-secondary"
+            onClick={pagenateM}
+          >
+            Prev
+          </button>
+          <p className="px-2">
+            {current}/{totalPageAdmin}
+          </p>
+          <button
+            className="btn btn page-item border-secondary"
+            onClick={pagenateNext}
+          >
+            Next
+          </button>
+        </div>
         <Table bordered hover>
           <thead>
             <tr className="text-center">
