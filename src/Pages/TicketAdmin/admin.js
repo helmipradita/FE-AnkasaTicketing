@@ -30,11 +30,50 @@ export default function Admin() {
 
   return (
     // <div>sssss</div>
-    <div className="container">
+    <div className="p-5">
       <nav>
         <NavbarComponentAdmin />
       </nav>
       <div className="py-5">
+        <div className="d-flex">
+          <Link to={"/Admin/airlines"} className="mx-3">
+            <button
+              className="btn"
+              style={{
+                backgroundColor: "yellowgreen",
+                color: "white",
+                borderRadius: "10px",
+              }}
+            >
+              Airlines
+            </button>
+          </Link>
+          <Link to={"/Admin/booking"} className="mx-3">
+            <button
+              className="btn"
+              style={{
+                backgroundColor: "yellowgreen",
+                color: "white",
+                borderRadius: "10px",
+              }}
+            >
+              Airport
+            </button>
+          </Link>
+
+          <Link to={"/Admin/airport"} className="mx-3">
+            <button
+              className="btn"
+              style={{
+                backgroundColor: "yellowgreen",
+                color: "white",
+                borderRadius: "10px",
+              }}
+            >
+              Booking
+            </button>
+          </Link>
+        </div>
         <h5 className="text-center mb-4 mt-4">DAFTAR TIKET </h5>
         <Table bordered hover>
           <thead>
@@ -90,9 +129,9 @@ export default function Admin() {
         </Link>
       </div>
 
-      <nav>
+      <footer>
         <Footer />
-      </nav>
+      </footer>
     </div>
   );
 }
