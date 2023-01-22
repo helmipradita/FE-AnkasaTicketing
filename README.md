@@ -5,8 +5,8 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
-* [Related Project](#related-project)
 * [Screenshot](#screenshot)
+* [Related Project](#related-project)
 * [Contact](#contact)
 
 
