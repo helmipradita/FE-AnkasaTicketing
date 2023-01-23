@@ -70,7 +70,7 @@ const Profile = (props) => {
 
   return (
     <div className={styles.pageProfile}>
-      <nav>
+      <nav className="px-5 py-3">
         {profile.role === "admin" ? (
           <NavbarComponentAdmin />
         ) : (
